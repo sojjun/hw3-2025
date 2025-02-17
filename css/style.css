@@ -88,7 +88,7 @@ first div in the grid  and place it in the grid. */
 
     /* Step 9: Write the selector/rule property to style the nav element */
       nav {
-          text-align: right !important;
+          text-align: end !important;
           padding: 30px 0 !important;
       }
   
