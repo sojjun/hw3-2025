@@ -9,7 +9,7 @@ nav a:hover, nav a:focus {
 }
 
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
-.skip {
+.skip a {
     position: absolute;
     top: -40px;
 }
@@ -22,108 +22,96 @@ nav a:hover, nav a:focus {
 /* Step 3: Write selector/rule property to style all elements when in focus*/
 
 :focus {
-     border: 2px solid;
+     border: 2px solid #000000;
 }
 
 /* Step 4: Write selector/rule property to style the container */
 .container {
      display: grid;
-     grid-template-columns: 1 fr 5fr 1fr;
+     grid-template-columns: 1fr 5fr 1fr;
      row-gap: 15px;
+     column-gap: 15px;
 }
 
 /* Step 5: Write selector/rule property to add the background image to the 
 first div in the grid  and place it in the grid. */
 .container > *:first-child {
-     grid-column: 1 / -1;
-     background-image: url('images/header.jpg');
-     background-repeat: no-repeat;
-     background-attachment: fixed;
-     background-size: cover;
- }
-
+    grid-column: 1 / -1; 
+    background-image: url('../images/header.jpg');  
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
 
 /* Steps 6 and 7: Write the selector/rule properties to add place the next elements in the next
  four rows in the grid. */
 
       /*This will be a lot of rules.... but be strategic and combine seletors*/
-      .about, .method, .clients, .contact {
-          grid-column: 2 / 3;
-      }
-      
-      .about {
-          grid-row: 2;
-      }
-      
-      .method {
-          grid-row: 3;
-      }
-      
-      .clients {
-          grid-row: 4;
-      }
-      
-      .contact {
-          grid-row: 5;
-      }
-      
-      .about-image, .method-image, .clients-image, .contact-image {
-          grid-column: 1 / -1;
-          max-height: 600px;
-          overflow: hidden;
-      }
-      
-      .about-image {
-          grid-row: 2;
-      }
-      
-      .method-image {
-          grid-row: 3;
-      }
-      
-      .clients-image {
-          grid-row: 4;
-      }
-      
-      .contact-image {
-          grid-row: 5;
-      }
+
+
+.about, .method, .clients, .contact {
+    grid-column: 2 / span 1;
+}
+
+.about, .about-image {
+    grid-row: 2;
+}
+
+.method, .method-image {
+    grid-row: 3;
+}
+
+.clients, .clients-image {
+    grid-row: 4;
+}
+
+.contact, .contact-image {
+    grid-row: 5;
+}
+
+.about-image, .method-image, .clients-image, .contact-image {
+    grid-column: 1 / -1;
+    max-height: 600px;
+    overflow: hidden;   
+
+}
 
  /* Step 8: Write the selector/rule property to style the .text-block class. */
 .text-block {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     text-align: center;
-}
-
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    }
 /* Add your media query here */
 @media (min-width: 800px) {
 
 
   /* Step 9: Write the selector/rule property to style the nav element */
-     nav {
-         text-align: right; /* Align to the other side of the window */
-         padding: 30px 0; /* Padding of 30px on the top and bottom, 0 on the left and right */
-     }
- 
+    nav {
+        text-align: right;
+        padding: 30px 0;
+    }
+
+
   /* Step 10: Write the selector/rule property to update the .container class */
-  .container {
-     grid-template-columns: 50px auto 500px auto 50px;
- }
+    .container {
+        grid-template-columns: 50px auto 500px auto 50px;
+    }
 
   /* Steps 11 and 12: Update the grid-column property of the grid's children (where-needed)*/
 
-  .about, .clients, .method-image, .contact-image {
-     grid-column: 3 / 5;
- }
+    .about, .clients, .method-image, .contact-image {
+        grid-column: 3 / span 2;
+    }
 
- .method, .contact, .about-image, .clients-image {
-     grid-column: 2 / 4;
- }
+    .method, .contact, .about-image, .clients-image {
+        grid-column: 2 / span 2;
+    }
 
  /* Step 13:Write the selector/rule property to update the .text-block class */
  .text-block {
      max-height: 250px;
+     overflow: auto;
  }
 }
